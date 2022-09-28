@@ -70,4 +70,6 @@ int main(){
     if( is_palindrome(num) && is_prime(num) ){
         printf("El numero %i es palindromo y primo.\n", num);
     }
+
+    get_pi();
 }
