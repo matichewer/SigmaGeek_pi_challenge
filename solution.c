@@ -57,7 +57,7 @@ int is_palindrome(int num){
     };
     
     if (num == reverse)
-        printf("%d is Palindrome\n", num);
+        printf("%d is palindrome\n", num);
     else
         printf("%d is not palindrome\n", num);
 
@@ -66,6 +66,8 @@ int is_palindrome(int num){
 
 
 int main(){
-	is_prime(318272813);
-    is_palindrome(318272813);
+    int num = 318272813;
+    if( is_palindrome(num) && is_prime(num) ){
+        printf("El numero %i es palindromo y primo.\n", num);
+    }
 }
