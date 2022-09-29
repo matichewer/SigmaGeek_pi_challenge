@@ -66,10 +66,11 @@ int is_palindrome(int num){
 
 
 int main(){
+    /*
     int num = 318272813;
     if( is_palindrome(num) && is_prime(num) ){
         printf("El numero %i es palindromo y primo.\n", num);
     }
-
+    */
     get_pi();
 }
