@@ -1,32 +1,39 @@
-int hasNineDigits(int num){
-    int toReturn = 0;
-    int contador = 0;
+int amount_of_digits(int num){
+    int cont = 0;
     while(num!=0){
-	    //printf("numero: %d\n",num);
         num = num / 10;
-	    //printf("numero sin ult dig %d\n", num);
-        contador++;
+        cont++;
     }
-    if(contador==21)
-        toReturn = 1;
-    return contador;
+    return cont;
 }
 
-int getFirstDigit(int num){
-    while(num>=10){
+int get_first_digit(int num){
+    while(num>=10)
         num = num / 10;
-    }
     return num;
 }
 
-int getLastDigit(int num){
+int get_last_digit(int num){
     return num % 10;
 }
 
+unsigned int remove_first_digit(unsigned int n) {
+    if( n < 10 )
+        return 0;
+    else
+        return n%10 + remove_first_digit(n/10) * 10;
+}
+
+unsigned concatenate(unsigned x, unsigned y) {
+    unsigned pow = 10;
+    while(y >= pow)
+        pow *= 10;
+    return x * pow + y;
+}
+
 int initial_check(int num){
-    int flag = 0;
-    int firstDigit = getFirstDigit(num);
-    int lastDigit = getLastDigit(num);
+    int firstDigit = get_first_digit(num);
+    int lastDigit = get_last_digit(num);
     return firstDigit == lastDigit;
 }
 
@@ -41,13 +48,11 @@ int is_prime(int num){
             break;
         }
     }
-    /**
-    if (flag == 1) {
+    /*
+    if (flag == 1) 
         printf("%d is a prime number\n", num);
-    }
-    else {
+    else 
         printf("%d is not a prime number\n", num);
-    }
     */
     return flag;
 }
@@ -63,7 +68,7 @@ int is_palindrome(int num){
         temp /= 10;
     };
 	
-    /**
+    /*
     if (num == reverse)
         printf("%d is palindrome\n", num);
     else
@@ -72,23 +77,6 @@ int is_palindrome(int num){
     return num == reverse;
 }
 
-unsigned checkNumber(unsigned number){
-    int toReturn=0;
-    if(is_palindrome(number) && is_prime(number))
-        toReturn=1;
-    return toReturn;
-}
-
-unsigned concatenate(unsigned x, unsigned y) {
-    unsigned pow = 10;
-    while(y >= pow)
-        pow *= 10;
-    return x * pow + y;
-}
-
-unsigned int remove_first_digit(unsigned int n) {
-    if( n < 10 )
-        return 0;
-    else
-        return n%10 + remove_first_digit(n/10) * 10;
+unsigned check_number(unsigned number){
+    return (is_palindrome(number) && is_prime(number));
 }
