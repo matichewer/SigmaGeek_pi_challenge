@@ -6,7 +6,7 @@
 int main() {
     int c = 0;
     FILE *fp;
-    fp = fopen("one_millon.txt", "r");
+    fp = fopen("one_billion.txt", "r");
         int palindrome_prime = 0; // 0 is false
     int num = 0;
     int cant_digitos = 21;
