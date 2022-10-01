@@ -51,6 +51,8 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-
+# vscode config
 .vscode/
-*.txt
+
+# big files with pi
+one_billion.txt
