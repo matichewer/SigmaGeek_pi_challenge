@@ -2,9 +2,9 @@ import math
 import time
 
 cantidad_de_digitos_a_tomar = 21
-ruta_archivo = "one_billion.txt"
+ruta_archivo = "ten_billion.txt"
 corta_al_primer_encontrado = True
-cada_cuantas_iteraciones_mostrar = 100000
+cada_cuantas_iteraciones_mostrar = 1000000
 
 
 def is_palindrome(num: int) -> bool:
@@ -39,6 +39,7 @@ def concat(x, y):
 #print(datetime.datetime.now())
 
 file = open(ruta_archivo, "r")
+borrar_puntito=file.read(3)
 num = file.read(cantidad_de_digitos_a_tomar)
 digito = file.read(1)
 iteration_number = 1;
@@ -52,7 +53,7 @@ while( digito != ''):
         digito = file.read(1)  
         num = concat(num, digito)
         iteration_number = iteration_number + 1;
-        if(iteration_number%100000 == 0):
+        if(iteration_number%cada_cuantas_iteraciones_mostrar == 0):
             print("analyzing iteration number: ", iteration_number)
 
     if(is_palindrome(num)):
