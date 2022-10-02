@@ -1,10 +1,9 @@
 import math
-import time
 
 cantidad_de_digitos_a_tomar = 21
-ruta_archivo = "ten_billion.txt"
+ruta_archivo = "/mnt/datos/pi-10010888000-100000000000.txt"
 corta_al_primer_encontrado = True
-cada_cuantas_iteraciones_mostrar = 1000000
+cada_cuantas_iteraciones_mostrar = 10000000
 
 
 def is_palindrome(num: int) -> bool:
@@ -33,17 +32,22 @@ def remove_first_digit(num):
 def concat(x, y):
     return int(str(x) + str(y))
 
+def maybe_check(num):
+    if ((num%2) != 0) or (num!=5):
+        return True
+    return False
 
 
 
-#print(datetime.datetime.now())
 
+iteration_number = 1; # 1 por defecto
 file = open(ruta_archivo, "r")
-borrar_puntito=file.read(3)
+#borrar_puntito=file.read(3)
+#borrar = file.read(iteration_number)
 num = file.read(cantidad_de_digitos_a_tomar)
 digito = file.read(1)
-iteration_number = 1;
-
+print("Num: ",num)
+print("Digito: ", digito)
 
 while( digito != ''):
     num = remove_first_digit(num)
@@ -56,6 +60,8 @@ while( digito != ''):
         if(iteration_number%cada_cuantas_iteraciones_mostrar == 0):
             print("analyzing iteration number: ", iteration_number)
 
+
+    #if digito!='' and maybe_check(int(digito)):
     if(is_palindrome(num)):
         if(is_prime(num)):
             print("\n---------- The number ",num, " is palindrome and prime ---------")
@@ -68,6 +74,5 @@ while( digito != ''):
     
     iteration_number = iteration_number + 1;
     digito = file.read(1)
-
 
 file.close()
