@@ -1,12 +1,16 @@
 import requests
 
-# SET CONFIG
-position = 10000999000 # about 10 billion = 10.000.000.000
-cant_digitos_a_generar = 10000000 # 10 million = 10.000.000
+print('pi = 3.41592653...')
+print('position 0 = 3')
+print('position 1 = 1')
+print('position 2 = 4')
+print('...\n')
 
+print('Remember: the number of digits generated is always a multiple of 1000.\n')
+starting_position = int(input('Enter starting position: '))
+ending_position = int(input('Enter ending position:   '))
+file_path = input("Enter the file path where pi will be generated (for example: mi_pi.txt): ")
 
-
-path_file = 'my_pi_2.txt'
 url1 = 'https://api.pi.delivery/v1/pi?start='
 url2 = '&numberOfDigits=1000'
 
@@ -16,16 +20,16 @@ def add_digits_of_pi_from_num(num):
     if response.status_code == 200:
         data = response.json()
         pi = data['content']
-        file = open(path_file, 'a')
+        file = open(file_path, 'a')
         file.write(pi)
         file.close()
     return response.status_code
 
 response = 200
-stop = position + cant_digitos_a_generar
-while position<stop and response==200:
-    response = add_digits_of_pi_from_num(position)
-    position = position + 1000
+while starting_position<ending_position and response==200:
+    response = add_digits_of_pi_from_num(starting_position)
+    starting_position = starting_position + 1000
 
+print("\nFile ",file_path, " generated")
 print("Code response: ", response)
-print("Position: ", position)
+print("Position: ", starting_position)

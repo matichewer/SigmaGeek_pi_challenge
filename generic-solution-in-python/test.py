@@ -40,10 +40,13 @@ def maybe_check(num):
 
 
 
-iteration_number = 1; # 1 por defecto
+iteration_number = 2600000000; # 1 por defecto
 file = open(ruta_archivo, "r")
 #borrar_puntito=file.read(3)
-#borrar = file.read(iteration_number)
+for x in range(0,10):
+    borrar = file.read(iteration_number)
+    print("ciclo x: ", x)
+
 num = file.read(cantidad_de_digitos_a_tomar)
 digito = file.read(1)
 print("Num: ",num)
