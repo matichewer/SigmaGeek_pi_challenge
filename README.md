@@ -11,4 +11,5 @@ This repository contains the solution to a challenge from Sigma Geek.
 
 ## Screenshots
 
-![](assets/screenshot.png)
+![](assets/screenshot-1.png)
+![](assets/screenshot-2.png)
